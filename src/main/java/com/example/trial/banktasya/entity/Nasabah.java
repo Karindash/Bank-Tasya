@@ -29,16 +29,16 @@ public class Nasabah {
     private String phoneNumber;
 
     @Column(nullable = false)
-    private String namaLengkap;
+    private String fullName;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String alamat;
+    private String address;
 
     @Column(nullable = false)
-    private String tempatLahir;
+    private String birthPlace;
 
     @Column(nullable = false)
-    private LocalDate tanggalLahir;
+    private LocalDate birthDate;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)

@@ -21,17 +21,17 @@ public class NasabahCreateRequest {
 
     @NotBlank(message = "Nama lengkap tidak boleh kosong")
     @Size(min = 3, message = "Nama lengkap harus minimal 3 karakter")
-    private String namaLengkap;
+    private String fullName;
 
     @NotBlank(message = "Alamat tidak boleh kosong")
     @Size(min = 10, message = "Alamat harus antara 10-500 karakter") // kasih verifikasi detail alamat
-    private String alamat;
+    private String address;
 
     @NotBlank(message = "Tempat lahir tidak boleh kosong")
     @Size(min = 3, message = "Tempat lahir harus lebih dari 3 karakter")
-    private String tempatLahir;
+    private String birthPlace;
 
     @NotNull(message = "Tanggal lahir tidak boleh kosong")
     @Past(message = "Tanggal lahir harus di masa lalu") // verifikasi 17 tahun+    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate tanggalLahir;
+    private LocalDate birthDate;
 }

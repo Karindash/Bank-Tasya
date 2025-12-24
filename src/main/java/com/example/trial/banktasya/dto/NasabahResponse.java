@@ -14,12 +14,12 @@ public class NasabahResponse {
     private String id;
     private String nik;
     private String phoneNumber;
-    private String namaLengkap;
-    private String alamat;
-    private String tempatLahir;
+    private String fullName;
+    private String address;
+    private String birthPlace;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate tanggalLahir;
+    private LocalDate birthDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
