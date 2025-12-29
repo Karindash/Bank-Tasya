@@ -16,5 +16,5 @@ public interface NasabahRepository extends JpaRepository<Nasabah, String> {
     Optional<Nasabah> findByPhoneNumber(String phoneNumber);
     Optional<Nasabah> findByFullName(String namaLengkap);
 
-    boolean existsByPhoneNumberAndIdNot(String phoneNumber, String id);
+    boolean existsByPhoneNumberAndNikNot(String phoneNumber, String nik);
 }

@@ -8,7 +8,6 @@ import com.example.trial.banktasya.exception.DuplicateResourceException;
 import com.example.trial.banktasya.exception.ResourceNotFoundException;
 import com.example.trial.banktasya.repository.NasabahRepository;
 import com.example.trial.banktasya.service.NasabahService;
-import com.sun.jdi.request.DuplicateRequestException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -33,11 +32,11 @@ public class NasabahServiceImpl implements NasabahService {
         var phoneNumberValidator = nasabahRepository.existsByPhoneNumber(request.getPhoneNumber());
 
         if(nikValidator){
-            throw new DuplicateRequestException("NIK sudah terdaftar: "+ request.getNik());
+            throw new DuplicateResourceException("NIK sudah terdaftar: "+ request.getNik());
         }
 
         if(phoneNumberValidator){
-            throw new DuplicateRequestException("Nomor handphone sudah terdaftar: "+ request.getPhoneNumber());
+            throw new DuplicateResourceException("Nomor handphone sudah terdaftar: "+ request.getPhoneNumber());
         }
 
         Nasabah nasabah = Nasabah.builder()
@@ -65,7 +64,7 @@ public class NasabahServiceImpl implements NasabahService {
 
         // Update hanya field yang tidak null
         if (request.getPhoneNumber() != null) {
-            if (nasabahRepository.existsByPhoneNumberAndIdNot(request.getPhoneNumber(), nik)) {
+            if (nasabahRepository.existsByPhoneNumberAndNikNot(request.getPhoneNumber(), nik)) {
                 throw new DuplicateResourceException("Nomor telepon sudah terdaftar: " + request.getPhoneNumber());
             }
             nasabah.setPhoneNumber(request.getPhoneNumber());
