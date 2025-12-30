@@ -1,4 +1,4 @@
-package com.example.trial.banktasya.dto;
+package com.example.trial.banktasya.dto.response;
 
 import lombok.*;
 

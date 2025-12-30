@@ -1,4 +1,4 @@
-package com.example.trial.banktasya.dto;
+package com.example.trial.banktasya.dto.response;
 
 import lombok.*;
 
@@ -9,5 +9,7 @@ import lombok.*;
 @Builder
 public class StatusResponse {
     private Integer code;
+    private boolean isSuccess;
+    private String message;
     private String description;
 }

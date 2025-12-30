@@ -1,9 +1,9 @@
 package com.example.trial.banktasya.util;
 
-import com.example.trial.banktasya.dto.ApiResponse;
-import com.example.trial.banktasya.dto.ErrorResponse;
-import com.example.trial.banktasya.dto.PagingResponse;
-import com.example.trial.banktasya.dto.StatusResponse;
+import com.example.trial.banktasya.dto.response.ApiResponse;
+import com.example.trial.banktasya.dto.response.ErrorResponse;
+import com.example.trial.banktasya.dto.response.PagingResponse;
+import com.example.trial.banktasya.dto.response.StatusResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +39,7 @@ public class ResponseUtil {
         // StatusResponse
         StatusResponse status = StatusResponse.builder()
                 .code(httpStatus.value())
+                .message(httpStatus.name())
                 .description(message)
                 .build();
         // Paging
@@ -55,7 +56,6 @@ public class ResponseUtil {
         ApiResponse<List<T>> response = ApiResponse.<List<T>>builder()
                 .status(status)
                 .data(page.getContent())
-                .paging(paging)
                 .build();
 
         // return

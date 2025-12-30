@@ -1,6 +1,5 @@
-package com.example.trial.banktasya.dto;
+package com.example.trial.banktasya.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 import lombok.*;
 

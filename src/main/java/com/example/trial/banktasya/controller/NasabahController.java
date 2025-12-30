@@ -1,9 +1,9 @@
 package com.example.trial.banktasya.controller;
 
-import com.example.trial.banktasya.dto.ApiResponse;
-import com.example.trial.banktasya.dto.NasabahCreateRequest;
-import com.example.trial.banktasya.dto.NasabahResponse;
-import com.example.trial.banktasya.dto.NasabahUpdateRequest;
+import com.example.trial.banktasya.dto.response.ApiResponse;
+import com.example.trial.banktasya.dto.request.NasabahCreateRequest;
+import com.example.trial.banktasya.dto.response.NasabahResponse;
+import com.example.trial.banktasya.dto.request.NasabahUpdateRequest;
 import com.example.trial.banktasya.service.NasabahService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

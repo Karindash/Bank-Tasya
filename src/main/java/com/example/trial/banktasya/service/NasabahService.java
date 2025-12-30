@@ -1,8 +1,8 @@
 package com.example.trial.banktasya.service;
 
-import com.example.trial.banktasya.dto.NasabahCreateRequest;
-import com.example.trial.banktasya.dto.NasabahResponse;
-import com.example.trial.banktasya.dto.NasabahUpdateRequest;
+import com.example.trial.banktasya.dto.request.NasabahCreateRequest;
+import com.example.trial.banktasya.dto.response.NasabahResponse;
+import com.example.trial.banktasya.dto.request.NasabahUpdateRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;

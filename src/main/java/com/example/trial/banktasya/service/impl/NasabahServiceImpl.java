@@ -1,8 +1,8 @@
 package com.example.trial.banktasya.service.impl;
 
-import com.example.trial.banktasya.dto.NasabahCreateRequest;
-import com.example.trial.banktasya.dto.NasabahResponse;
-import com.example.trial.banktasya.dto.NasabahUpdateRequest;
+import com.example.trial.banktasya.dto.request.NasabahCreateRequest;
+import com.example.trial.banktasya.dto.response.NasabahResponse;
+import com.example.trial.banktasya.dto.request.NasabahUpdateRequest;
 import com.example.trial.banktasya.entity.Nasabah;
 import com.example.trial.banktasya.exception.DuplicateResourceException;
 import com.example.trial.banktasya.exception.ResourceNotFoundException;
