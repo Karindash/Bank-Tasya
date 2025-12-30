@@ -49,23 +49,23 @@ public class NasabahServiceImpl implements NasabahService {
                 .build();
         Nasabah savedNasabah = nasabahRepository.save(nasabah);
         log.info("Nasabah created successfully with ID: {}", savedNasabah.getId());
-
         return mapToResponse(savedNasabah);
     }
 
     @Override
     public NasabahResponse update(String nik, NasabahUpdateRequest request) {
         log.info("Mengubah data nasabah berdasarkan NIK: {}", nik);
+        // TODO
+        // Kasus error untuk validasi
+        // 1. NIK tidak ditemukan
+        // 2. Field yang di request tidak sesuai - masuk ke bad request
 
         Nasabah nasabah = nasabahRepository.findByNik(nik)
                 .orElseThrow(() -> new ResourceNotFoundException("Nasabah tidak ditemukan dengan NIK: " + nik));
 
-        // Hanya boleh mengupdate phoneNumber dan alamat
-
-        // Update hanya field yang tidak null
         if (request.getPhoneNumber() != null) {
             if (nasabahRepository.existsByPhoneNumberAndNikNot(request.getPhoneNumber(), nik)) {
-                throw new DuplicateResourceException("Nomor telepon sudah terdaftar: " + request.getPhoneNumber());
+                throw new DuplicateResourceException("Nomor telepon sudah terdaftar di User lain: " + request.getPhoneNumber());
             }
             nasabah.setPhoneNumber(request.getPhoneNumber());
         }
@@ -76,7 +76,6 @@ public class NasabahServiceImpl implements NasabahService {
 
         Nasabah updatedNasabah = nasabahRepository.save(nasabah);
         log.info("Data nasabah berhasil diupdate: {}", nik);
-
         return mapToResponse(updatedNasabah);
     }
 
@@ -119,7 +118,6 @@ public class NasabahServiceImpl implements NasabahService {
 
         Nasabah nasabah = nasabahRepository.findByNik(nik)
                 .orElseThrow(() -> new ResourceNotFoundException("Nasabah tidak ditemukan dengan NIK: " + nik));
-
         return mapToResponse(nasabah);
     }
 
@@ -130,7 +128,6 @@ public class NasabahServiceImpl implements NasabahService {
 
         Nasabah nasabah = nasabahRepository.findByFullName(namaLengkap)
                 .orElseThrow(() -> new ResourceNotFoundException("Nasabah dengan nama tersebut tidak ditemukan."));
-
         return mapToResponse(nasabah);
     }
 
@@ -141,7 +138,6 @@ public class NasabahServiceImpl implements NasabahService {
 
         Nasabah nasabah = nasabahRepository.findByPhoneNumber(phoneNumber)
                 .orElseThrow(() -> new ResourceNotFoundException("Nasabah tidak ditemukan dengan nomor telepon: " + phoneNumber));
-
         return mapToResponse(nasabah);
     }
 
